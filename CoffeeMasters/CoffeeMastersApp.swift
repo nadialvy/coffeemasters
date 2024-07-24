@@ -17,25 +17,7 @@ struct CoffeeMastersApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            OffersPage()
         }
     }
-}
-
-class Base {
-    
-}
-
-class A: Base {
-    
-}
-
-class B: Base {
-    
-}
-
-func createBase(index: Int) -> some Base{
-        return A()
-//        return B()
-    
 }
