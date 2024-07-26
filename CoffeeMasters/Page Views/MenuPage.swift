@@ -13,7 +13,9 @@ struct MenuPage: View {
             List{                
                 ForEach(0 ..< 5){item in
                     NavigationLink{
-                        DetailsPage(quantity: 1)
+                        DetailsPage(
+//                            quantity: 1
+                        )
                     } label : {
                         ProductItem(
                             product: Product(id: 1, name: "Coffee", description: "desc", price: 1.0, image: "")

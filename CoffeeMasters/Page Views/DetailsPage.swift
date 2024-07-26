@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailsPage: View {
-    @State var quantity: Int = 1
+//    @State var quantity: Int = 1
     
     var body: some View {
         NavigationView{
@@ -22,7 +22,7 @@ struct DetailsPage: View {
                         .font(.headline)
                     HStack(){
                         Text("$ 1.50 ea")
-                        Stepper(value: $quantity, in:1...10){}
+//                        Stepper(value: $quantity, in:1...10){}
                     }
                     .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                     .padding(30)
@@ -33,8 +33,8 @@ struct DetailsPage: View {
                     Button(action: {
                         
                     }, label: {
-                        Text("Add \(quantity) to Cart")
-                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+//                        Text("Add \(quantity) to Cart")
+//                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     })
                     .padding()
                     .padding(.horizontal, 50)
@@ -50,5 +50,7 @@ struct DetailsPage: View {
 }
 
 #Preview {
-    DetailsPage(quantity: 1)
+    DetailsPage(
+//        quantity: 1
+    )
 }
