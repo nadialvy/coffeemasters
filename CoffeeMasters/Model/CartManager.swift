@@ -8,5 +8,8 @@
 import Foundation
 
 class CartManager: ObservableObject{
-    
+    //    array of tupple =>  [(Product, Int)]
+    var cart: [(Product, Int)] = [
+        
+    ]
 }

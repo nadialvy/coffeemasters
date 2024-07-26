@@ -22,6 +22,7 @@
 		3D797CD92C5362BD007CF46A /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D797CD82C5362BD007CF46A /* Product.swift */; };
 		3D797CDB2C53660A007CF46A /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D797CDA2C53660A007CF46A /* MenuManager.swift */; };
 		3D797CDD2C536617007CF46A /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D797CDC2C536617007CF46A /* CartManager.swift */; };
+		3D797CDF2C53CB84007CF46A /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D797CDE2C53CB84007CF46A /* OrderItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		3D797CD82C5362BD007CF46A /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		3D797CDA2C53660A007CF46A /* MenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
 		3D797CDC2C536617007CF46A /* CartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
+		3D797CDE2C53CB84007CF46A /* OrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				3D5D7A1A2C50E50500CEC79E /* Offer.swift */,
 				3D75E69A2C51FF6D00C4D2CB /* ProductItem.swift */,
+				3D797CDE2C53CB84007CF46A /* OrderItem.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				3D75E69D2C52085800C4D2CB /* DetailsPage.swift in Sources */,
 				3D797CD92C5362BD007CF46A /* Product.swift in Sources */,
 				3D75E6992C51FE5700C4D2CB /* InfoPage.swift in Sources */,
+				3D797CDF2C53CB84007CF46A /* OrderItem.swift in Sources */,
 				3D5D79DB2C4FD1DA00CEC79E /* ContentView.swift in Sources */,
 				3D75E69B2C51FF6D00C4D2CB /* ProductItem.swift in Sources */,
 				3D75E6972C51FE4200C4D2CB /* OrdersPage.swift in Sources */,
