@@ -15,9 +15,14 @@ struct CoffeeMastersApp: App {
 //    coba pikirin, pernah ga di iphone kita running 2 apps di 1 screen secara bersamaan...
 //    ngga kan? nah thats why kita perlu keyword some
     
+    var menuManager = MenuManager()
+    var cartManager = CartManager()
+    
     var body: some Scene {
         WindowGroup {
-            OffersPage()
+            ContentView()
+                .environmentObject(menuManager)
+                .environmentObject(cartManager)
         }
     }
 }

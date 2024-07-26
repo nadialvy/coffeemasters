@@ -7,14 +7,12 @@
 
 import SwiftUI
 
-struct MenuItem: View {
-    var image: String
-    var title: String
-    var price: String
+struct ProductItem: View {
+    var product:Product
     
     var body: some View {
         VStack{
-            Image(image)
+            AsyncImage(url: product.imageUrl)
                 .clipShape(
                     .rect(
                         topLeadingRadius: 100
@@ -23,10 +21,10 @@ struct MenuItem: View {
                 .frame(width: 300, height: 170)
                             HStack{
                 VStack(alignment: .leading){
-                    Text(title)
+                    Text(product.name)
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                         .font(.title)
-                    Text("$ \(price)")
+                    Text("$ \(product.price)")
                         .font(.caption)
                 }
                 Spacer()
@@ -40,7 +38,7 @@ struct MenuItem: View {
     }}
 
 #Preview {
-    MenuItem(
-        image: "DummyImage", title: "Coffe", price: "3.25"
+    ProductItem(
+        product: Product(id: 1, name: "Coffee", description: "this is a desc", price: 3.21, image: "")
     )
 }

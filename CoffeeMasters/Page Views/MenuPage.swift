@@ -11,13 +11,14 @@ struct MenuPage: View {
     var body: some View {
         NavigationView{
             List{                
-                ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
+                ForEach(0 ..< 5){item in
                     NavigationLink{
-                        DetailsPage(quantity: 4)
+                        DetailsPage(quantity: 1)
                     } label : {
-                        MenuItem(image: "DummyImage", title: "Coffee", price: "2.43")
+                        ProductItem(
+                            product: Product(id: 1, name: "Coffee", description: "desc", price: 1.0, image: "")
+                        )
                     }
-                    
                 }
             }.navigationTitle("Product")
         }
