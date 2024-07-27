@@ -30,7 +30,6 @@ class MenuManager: ObservableObject {
 //        ofc we can customize the map but we're not gonna do that (OK NGULIK INI ABIS COURSE NYA KELAR)
             .responseDecodable(of: [Category].self ){response in
                 if let menuFromNetwork = response.value {
-                    print(response.value)
                     self.menu = menuFromNetwork
                 }
             }

@@ -12,19 +12,41 @@ struct ProductItem: View {
     
     var body: some View {
         VStack{
-            AsyncImage(url: product.imageUrl)
-                .clipShape(
-                    .rect(
-                        topLeadingRadius: 100
-                    )
-                )
-                .frame(width: 300, height: 170)
+            AsyncImage(url: product.imageUrl) {phase in
+                switch phase{
+                case.empty: ProgressView()
+                    .frame(width: 300, height: 170)
+                    .padding()
+                case.success(let image):
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 300, height: 170)
+                        .clipShape(
+                            .rect(
+                                topLeadingRadius: 100
+                            )
+                        )
+                case.failure:
+                    Image(systemName: "photo")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 300, height: 100)
+                        .frame(width: 300, height: 250)
+                @unknown default:
+                    EmptyView()
+                }
+                
+            }
+                
+                
                             HStack{
                 VStack(alignment: .leading){
                     Text(product.name)
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                         .font(.title)
-                    Text("$ \(product.price)")
+//                  "%.2f"? meaning that takes only 2 digit behind commas in float
+                    Text("$ \(product.price, specifier: "%.2f")")
                         .font(.caption)
                 }
                 Spacer()
@@ -39,6 +61,6 @@ struct ProductItem: View {
 
 #Preview {
     ProductItem(
-        product: Product(id: 1, name: "Coffee", description: "this is a desc", price: 3.21, image: "")
+        product: Product(id: 1, name: "Coffee", description: "this is a desc", price: 3.21, image: "DummyImage")
     )
 }

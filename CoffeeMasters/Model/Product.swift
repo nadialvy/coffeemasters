@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Product: Decodable {
+struct Product: Decodable, Identifiable {
     var id: Int
     var name: String
     var description: String?
@@ -15,6 +15,6 @@ struct Product: Decodable {
     var image: String = ""
     
     var imageUrl: URL{
-        URL(string: "https://firtman.github.io/coffeemasters/api/images\(self.image)")!
+        URL(string: "https://firtman.github.io/coffeemasters/api/images/\(self.image)")!
     }
 }

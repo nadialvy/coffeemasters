@@ -8,49 +8,66 @@
 import SwiftUI
 
 struct DetailsPage: View {
-//    @State var quantity: Int = 1
+    @State var quantity: Int = 1
+    var product:Product
     
     var body: some View {
-        NavigationView{
-            ScrollView{
-                VStack{
-                    Image("DummyImage")
-                        .cornerRadius(12)
-                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 200)
-                        .padding(.vertical, 16)
-                    Text("ini desc decs ini desc decsini desc decs ini desc decs")
+        NavigationView {
+            ScrollView {
+                VStack {
+                    AsyncImage(url: product.imageUrl) {phase in
+                        switch phase{
+                        case.empty: ProgressView()
+                            .frame(width: 300, height: 170)
+                        case.success(let image):
+                            image
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 300, height: 170)
+                                .cornerRadius(16)
+                        case.failure:
+                            Image(systemName: "photo")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 300, height: 250)
+                        @unknown default:
+                            EmptyView()
+                        }
+                        
+                    }
+                    Text(product.description ?? "")
                         .font(.headline)
+                        .padding()
                     HStack(){
-                        Text("$ 1.50 ea")
-//                        Stepper(value: $quantity, in:1...10){}
+                        Text("$ \(product.price, specifier:"%.2f")")
+                        Stepper(value: $quantity, in:1...10){}
                     }
                     .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                     .padding(30)
-                    Text("Subtotal $ 1.50")
+                    Text("Subtotal $ \(product.price * Double(quantity), specifier: "%.2f")")
                         .font(.subheadline)
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                         .padding(.bottom)
                     Button(action: {
                         
                     }, label: {
-//                        Text("Add \(quantity) to Cart")
-//                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        Text("Add \(quantity) to Cart")
+                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     })
                     .padding()
                     .padding(.horizontal, 50)
                     .background(Color("CardBackground"))
                     .cornerRadius(100)
-                    
-                    
                 }
             }
-                .navigationTitle("Black Americano")
+            .navigationTitle(product.name)
         }
     }
 }
 
 #Preview {
     DetailsPage(
-//        quantity: 1
+        quantity: 1,
+        product: Product(id: 1, name: "test", description: "test", price: 1.21, image: "")
     )
 }
