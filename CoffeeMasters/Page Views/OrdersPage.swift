@@ -29,7 +29,7 @@ struct OrdersPage: View {
 //                      what is .0? its the tuple (see on the cartManager)
 //                      what about .id? its from Product, each tuple contain Product. and inside Product there is an id
                         ForEach(cartManager.cart, id: \.0.id){ item in
-                            OrderItem()
+                            OrderItem(item: (item.0, item.1))
                         }
                     }
                     .listRowBackground(Color("Background"))
@@ -54,7 +54,7 @@ struct OrdersPage: View {
                             Spacer()
                             Text("Total")
                             Spacer()
-//                            Text("$ \(cartManager.total(), specifier: "%.2f")")
+                            Text("$ \(cartManager.countTotal(), specifier: "%.2f")")
                                 .bold()
                             Spacer()
                         }

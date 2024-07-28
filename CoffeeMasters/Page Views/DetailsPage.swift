@@ -10,6 +10,7 @@ import SwiftUI
 struct DetailsPage: View {
     @State var quantity: Int = 1
     var product:Product
+    @EnvironmentObject var cartManager: CartManager
     
     var body: some View {
         NavigationView {
@@ -35,6 +36,10 @@ struct DetailsPage: View {
                         }
                         
                     }
+                    Text(product.name)
+                        .font(.title)
+                        .bold()
+                        .padding()
                     Text(product.description ?? "")
                         .font(.headline)
                         .padding()
@@ -49,7 +54,7 @@ struct DetailsPage: View {
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                         .padding(.bottom)
                     Button(action: {
-                        
+                        cartManager.add(product: product, quantity: quantity)
                     }, label: {
                         Text("Add \(quantity) to Cart")
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
@@ -60,7 +65,6 @@ struct DetailsPage: View {
                     .cornerRadius(100)
                 }
             }
-            .navigationTitle(product.name)
         }
     }
 }
@@ -70,4 +74,5 @@ struct DetailsPage: View {
         quantity: 1,
         product: Product(id: 1, name: "test", description: "test", price: 1.21, image: "")
     )
+    .environmentObject(CartManager())
 }
