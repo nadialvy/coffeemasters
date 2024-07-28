@@ -12,7 +12,16 @@ class CartManager: ObservableObject{
     @Published var cart: [(Product, Int)] = []
     
     func add(product: Product, quantity: Int){
-        if let index = self.cart.firstIndex(where:  {$0.0.id == product.id}){
+//      ((firstIndex is a hof just like removeAll))
+//      what is in? its just naming the argument you got. just like high order function in js
+//      array.foreach(number => {
+//        console.log(number)
+//      }
+//      (( i know its weird why we decalre it inside the function <smashing keyboard> ))
+        
+        if let index = self.cart.firstIndex(where: { item in
+            item.0.id == product.id
+        }){
             self.cart[index].1 += quantity
         }else {
             self.cart.append( (product, quantity) )

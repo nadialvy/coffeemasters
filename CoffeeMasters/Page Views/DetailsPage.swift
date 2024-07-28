@@ -11,6 +11,7 @@ struct DetailsPage: View {
     @State var quantity: Int = 1
     var product:Product
     @EnvironmentObject var cartManager: CartManager
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         NavigationView {
@@ -55,6 +56,7 @@ struct DetailsPage: View {
                         .padding(.bottom)
                     Button(action: {
                         cartManager.add(product: product, quantity: quantity)
+                        dismiss()
                     }, label: {
                         Text("Add \(quantity) to Cart")
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
