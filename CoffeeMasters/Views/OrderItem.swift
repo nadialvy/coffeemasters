@@ -20,7 +20,7 @@ struct OrderItem: View {
             Text("$ \(item.0.price*Double(item.1), specifier: "%.2f")")
             Image(systemName: "trash")
                 .font(.headline)
-                .foregroundColor(.red)
+                .foregroundColor(Color("Color"))
                 .padding()
                 .onTapGesture {
                     print("click")

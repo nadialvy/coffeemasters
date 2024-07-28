@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-
 struct OffersPage: View {
     var body: some View {
         NavigationView {
